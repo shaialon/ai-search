@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.4.2",
+    "node-persist": "^4.0.1",
     "openai": "^4.27.0"
   }
 }

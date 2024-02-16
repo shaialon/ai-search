@@ -1,5 +1,8 @@
-import "dotenv/config";
+import { config } from "./config.js";
 import OpenAI from "openai";
+import { getFromCache, setToCache } from "./cache.js";
+
+const LOG = config.VERBOSE_LOGGING;
 
 export const MODELS = {
   GPT_3_5: "gpt-3.5-turbo-0125",
@@ -7,7 +10,7 @@ export const MODELS = {
 };
 
 const openai = new OpenAI({
-  apiKey: process.env["OPENAI_API_KEY"], // This is the default and can be omitted
+  apiKey: config.OPENAI_API_KEY,
 });
 
 const LOGGER_OPTIONS = {
@@ -16,17 +19,25 @@ const LOGGER_OPTIONS = {
 };
 
 export async function openAICompletionWithCache(payload) {
-  console.log(`Making a request to OpenAI: ${payload.model}`);
+  let chatCompletion = await getFromCache(payload);
+  if (chatCompletion) {
+    LOG && console.log("Got a cache hit!");
+  } else {
+    LOG && console.log(`Making a request to OpenAI: ${payload.model}`);
+    LOG && console.time("Query LLM Execution");
+    chatCompletion = await openai.chat.completions.create(payload);
+    LOG && console.timeEnd("Query LLM Execution");
+    setToCache(payload, chatCompletion);
+  }
 
-  console.time("Query LLM Execution");
-  const chatCompletion = await openai.chat.completions.create(payload);
-  console.timeEnd("Query LLM Execution");
-  console.dir(chatCompletion.usage, LOGGER_OPTIONS);
+  LOG && console.dir(chatCompletion.usage, LOGGER_OPTIONS);
 
-  const response = chatCompletion.choices[0].message.content;
-  console.log("Response from OpenAI:");
+  const structuredResponse = JSON.parse(
+    chatCompletion.choices[0].message.content
+  );
+  LOG && console.log("Response from OpenAI:");
 
-  console.dir(JSON.parse(response), LOGGER_OPTIONS);
+  LOG && console.dir(structuredResponse, LOGGER_OPTIONS);
 
-  return response;
+  return structuredResponse;
 }
