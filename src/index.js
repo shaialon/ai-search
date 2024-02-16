@@ -1,5 +1,7 @@
 import { openAICompletionWithCache, MODELS } from "./open_ai_utils.js";
 import { convertStructuredFiltersToUrl } from "./booking_utils.js";
+import { logGrey, logYellow, logBlue } from "./logger.js";
+
 const SYSTEM_PROMPT =
   `You translate human search queries into structured filters for Booking.com stays (hotels, homes, etc.).
 Example:
@@ -68,7 +70,10 @@ async function convertUserQueryToStructuredFilters(userQ) {
 async function processUserQuery(userQ) {
   const structuredFilters = await convertUserQueryToStructuredFilters(userQ);
   const url = convertStructuredFiltersToUrl(structuredFilters);
-  console.log(url);
+  logGrey("-----------");
+  logYellow(userQ);
+  logBlue(url);
+  logGrey("-----------");
 }
 
 for (const userQ of userQueries) {
