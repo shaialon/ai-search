@@ -36,7 +36,7 @@ NOTES:
 - If the user does not mention some parameters, - do not include them in the output.
 - If the question is not in English, translate it to English before processing.
 - Current date is ${new Date().toISOString().split("T")[0]}
-- Always respond in JSON!
+- Always respond in Minified JSON!
 `.trim();
 
 // const userQ = `Find a hotel in Larnaca or Paph for me and my wife, 2 nights starting 19th march. We are looking for a hotel with a pool and a gym. Our budget is 200 euros per night.`;
@@ -50,7 +50,7 @@ async function main() {
       { role: "system", content: SYSTEM_PROMPT },
       { role: "user", content: userQ },
     ],
-    model: MODELS.GPT_4_TURBO,
+    model: MODELS.GPT_3_5,
     response_format: { type: "json_object" },
   };
   const response = await openAICompletionWithCache(payload);
