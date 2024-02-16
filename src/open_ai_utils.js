@@ -20,9 +20,7 @@ const LOGGER_OPTIONS = {
 
 export async function openAICompletionWithCache(payload) {
   let chatCompletion = await getFromCache(payload);
-  if (chatCompletion) {
-    LOG && console.log("Got a cache hit!");
-  } else {
+  if (!chatCompletion) {
     LOG && console.log(`Making a request to OpenAI: ${payload.model}`);
     LOG && console.time("Query LLM Execution");
     chatCompletion = await openai.chat.completions.create(payload);

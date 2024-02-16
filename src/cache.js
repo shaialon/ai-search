@@ -2,6 +2,7 @@
 import { config } from "./config.js";
 import storage from "node-persist";
 import crypto from "crypto";
+import { logGreen } from "./logger.js";
 
 const LOG = config.VERBOSE_LOGGING;
 
@@ -29,12 +30,14 @@ function generateCacheKey(input) {
 
 export async function getFromCache(payload) {
   const key = generateCacheKey(payload);
-  return await storage.getItem(key); // Use the generated key to get the item
+  const data = await storage.getItem(key); // Use the generated key to get the item
+  LOG && data && logGreen("Got Cache hit!");
+  return data;
 }
 
 // Implement set cache
 export async function setToCache(payload, value) {
   const key = generateCacheKey(payload);
   await storage.setItem(key, value); // Save the value with the generated key
-  LOG && console.log("Saved to cache!");
+  LOG && logGreen("Saved to cache!");
 }
