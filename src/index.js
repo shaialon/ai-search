@@ -1,14 +1,4 @@
-import "dotenv/config";
-import OpenAI from "openai";
-
-const MODELS = {
-  GPT_3_5: "gpt-3.5-turbo",
-  GPT_4_TURBO: "gpt-4-turbo-preview",
-};
-
-const openai = new OpenAI({
-  apiKey: process.env["OPENAI_API_KEY"], // This is the default and can be omitted
-});
+import { openAICompletionWithCache, MODELS } from "./open_ai_utils.js";
 
 const SYSTEM_PROMPT =
   `You translate human search queries into structured filters for Booking.com stays (hotels, homes, etc.).
@@ -55,20 +45,15 @@ const userQ = `. אח שלי - תארגן מלון באיביזה לי ולאש�
 // const userQ = `Find a place in Porto for me and my wife, 2 weeks starting 22th march.`;
 
 async function main() {
-  const chatCompletion = await openai.chat.completions.create({
+  const payload = {
     messages: [
       { role: "system", content: SYSTEM_PROMPT },
       { role: "user", content: userQ },
     ],
-    // model: MODELS.GPT_3_5,
     model: MODELS.GPT_4_TURBO,
     response_format: { type: "json_object" },
-  });
-  const response = chatCompletion.choices[0].message.content;
-  console.dir(JSON.parse(response), {
-    depth: null,
-    colors: true,
-  });
+  };
+  const response = await openAICompletionWithCache(payload);
 }
 
 main();
