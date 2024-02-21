@@ -44,15 +44,13 @@ NOTES:
 - Always respond in Minified JSON!
 `.trim();
 
-// const userQ = `Find a hotel in Larnaca or Paphos for me and my wife, 2 nights starting 19th march. We are looking for a hotel with a pool and a gym. Our budget is 200 euros per night.`;
-// const userQ = `. אח שלי - תארגן מלון באיביזה לי ולאשתי, 3 לילות מתחילת אוגוסט. אנחנו זוג צעיר ואנחנו מחפשים מלון. התקציב שלנו הוא 300 שקל ללילה. אני רוצה לפנק אותה במסאאז כפרה עליה!`;
-// const userQ = `ME + 4 KIDS + 2 DOGS. 3 NIGHTS IN A CABIN IN THE WOODS AT LAKE TAHO. 2 BEDROOMS, 2 BATHROOMS. 2ND WEEK OF AUGUST. BUDGET: 1900 BUCKS PER NIGHT.`;
-// const userQ = `Find a place in Porto for me and my wife, 2 weeks starting 22th march.`;
-// const userQ = `My brother in law jonathan and I want to arrange a hotel in Eilat for our families. We are 2 adults - each couple. Make sure it has a pool, we are looking for a 5 night stay on the 2nd week of August. Our budget is 1500 shekels per night.`;
-
 const userQueries = [
-  // `My brother in law jonathan and I want to arrange a hotel in Eilat for our families. We are 2 adults - each couple. Make sure it has a pool, we are looking for a 5 night stay on the 2nd week of August. Our budget is 1500 shekels per night per room (we need to rooms).`,
+  `My brother in law jonathan and I want to arrange a hotel in Eilat for our families. We are 2 adults - each couple. Make sure it has a pool, we are looking for a 5 night stay on the 2nd week of August. Our budget is 1500 shekels per night per room (we need to rooms).`,
   `I'm looking for accommodations in London for a 4-night stay starting on the 12th of April, 2024. We are a family of 2 adults, 2 kids (8 and 6), and a 6-months baby, and we'll be bringing our dog. Must have washer and a jacuzzi. It's critical that the booking comes with a free cancellation policy, as our plans might change. Our budget is up to 4000 USD for the whole stay. Must have 2 separate bedrooms...`,
+  `Find a place in Porto for me and my wife, 2 weeks starting 22th march.`,
+  `ME + 4 KIDS + 2 DOGS. 3 NIGHTS IN A CABIN IN THE WOODS AT LAKE TAHO. 2 BEDROOMS, 2 BATHROOMS. 2ND WEEK OF AUGUST. BUDGET: 1900 BUCKS PER NIGHT.`,
+  `Find a hotel in Larnaca or Paphos for me and my wife, 2 nights starting 19th march. We are looking for a hotel with a pool and a gym. Our budget is 200 euros per night.`,
+  `. אח שלי - תארגן מלון באיביזה לי ולאשתי, 3 לילות מתחילת אוגוסט. אנחנו זוג צעיר ואנחנו מחפשים מלון. התקציב שלנו הוא 300 שקל ללילה. אני רוצה לפנק אותה במסאאז כפרה עליה!`,
 ];
 async function convertUserQueryToStructuredFilters(userQ) {
   const payload = {
@@ -71,7 +69,7 @@ async function processUserQuery(userQ) {
   const structuredFilters = await convertUserQueryToStructuredFilters(userQ);
   const url = convertStructuredFiltersToUrl(structuredFilters);
   logGrey("-----------");
-  logYellow(userQ);
+  logYellow("🔎 " + userQ);
   logBlue(url);
   logGrey("-----------");
 }
