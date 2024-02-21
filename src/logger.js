@@ -1,4 +1,3 @@
-import logger from "node-color-log";
 import chalk from "chalk";
 
 export function logGrey(message) {
