@@ -1,5 +1,5 @@
 import { getBookingFacilityByName } from "./booking_facilities.js";
-import { logRed, logGreen } from "./logger.js";
+import { logRed, logGreen } from "../utils/logger.js";
 
 export function convertStructuredFiltersToUrl(filters) {
   const baseURL = `https://www.booking.com/searchresults.html`;

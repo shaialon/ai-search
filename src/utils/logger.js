@@ -1,6 +1,6 @@
 import chalk from "chalk";
 import terminalLink from "terminal-link";
-import { config } from "./config.js";
+import { config } from "../config.js";
 const { IS_TEST } = config;
 
 function logIfNotTest(message) {

@@ -1,6 +1,6 @@
-import { config } from "./config.js";
+import { config } from "../config.js";
 import OpenAI from "openai";
-import { getFromCache, setToCache } from "./cache.js";
+import { getFromCache, setToCache } from "../utils/cache.js";
 
 const LOG = config.VERBOSE_LOGGING;
 

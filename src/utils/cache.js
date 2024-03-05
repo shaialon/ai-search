@@ -1,5 +1,5 @@
 // A basic cache to save LLM tokens and development sanity
-import { config } from "./config.js";
+import { config } from "../config.js";
 import storage from "node-persist";
 import crypto from "crypto";
 import { logGreen } from "./logger.js";
@@ -8,7 +8,7 @@ const LOG = config.VERBOSE_LOGGING;
 
 // Initialize the storage
 await storage.init({
-  dir: "open_ai_completions",
+  dir: ".cache",
 });
 
 function generateCacheKey(input) {

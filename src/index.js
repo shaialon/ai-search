@@ -1,6 +1,6 @@
-import { openAICompletionWithCache, MODELS } from "./open_ai_utils.js";
-import { convertStructuredFiltersToUrl } from "./booking_utils.js";
-import { logLink } from "./logger.js";
+import { openAICompletionWithCache, MODELS } from "./llms/open_ai_utils.js";
+import { convertStructuredFiltersToUrl } from "./booking/booking_url_generator.js";
+import { logLink } from "./utils/logger.js";
 import { tests } from "../benchmark/benchmark.js";
 
 const SYSTEM_PROMPT =
