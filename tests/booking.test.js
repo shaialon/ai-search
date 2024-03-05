@@ -1,7 +1,7 @@
 import { jest } from "@jest/globals";
 import chalk from "chalk";
 import terminalLink from "terminal-link";
-import { processUserQuery } from "../src/index.js";
+import { processUserQuery } from "../src/booking/booking_prompts.js";
 import { tests } from "../benchmark/benchmark.js";
 const TEST_TIMEOUT = 30000;
 

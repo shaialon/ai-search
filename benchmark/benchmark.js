@@ -2,7 +2,7 @@ export const tests = [
   {
     name: "Very simple",
     query: `I need 2 nights in Paris. 1 Adult. from 14-06-2024 to 16-06-2024.`,
-    url: `https://www.booking.com/searchresults.html?ss=Paris&ssne=Paris&ssne_untouched=Paris&lang=en&checkin=2024-06-14&checkout=2024-06-16&group_adults=1&nflt=`,
+    url: `https://www.booking.com/searchresults.html?ss=Paris&ssne=Paris&ssne_untouched=Paris&lang=en&checkin=2024-06-14&checkout=2024-06-16&group_adults=1`,
   },
   {
     name: "Simple + Kids + Feature",

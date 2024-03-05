@@ -70,8 +70,9 @@ export function convertStructuredFiltersToUrl(filters) {
     nflt.push(`min_bathrooms=${filters.bathrooms_min}`);
     logGreen(`Bathrooms limitation ${filters.bathrooms_min} INJECTED!`);
   }
-
-  urlParams.append("nflt", nflt.join(";"));
+  if (nflt.length) {
+    urlParams.append("nflt", nflt.join(";"));
+  }
 
   //   sb_travel_purpose=leisure
 

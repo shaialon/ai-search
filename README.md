@@ -45,18 +45,19 @@ Create a `.env` file in the root directory and add your OpenAI API key:
 OPENAI_API_KEY=your_api_key_here
 ```
 
-
 ### Contributions
 Contributions are welcome! 
 Please open an issue to discuss your idea or submit a pull request.
 
 Especially appreciated:
-
+- [ ] Support Booking flexible dates
 - [ ] Adding support for Google Gemini (via Langchain.js)
 - [ ] Adding a RAG component
+- [ ] Get data dynamically from Booking
+
 
 ## Disclaimer
 This project is not affiliated with Booking.com, and is meant for demonstration purposes only.
 
 ### License
-This project is licensed under the ISC License. See the LICENSE file for details.
+This project is licensed under the MIT License. See the LICENSE file for details.
