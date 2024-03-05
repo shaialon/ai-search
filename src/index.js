@@ -50,8 +50,6 @@ NOTES:
 - Always respond in Minified JSON!
 `.trim();
 
-//
-
 async function convertUserQueryToStructuredFilters(userQ) {
   const payload = {
     messages: [
