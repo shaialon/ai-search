@@ -53,8 +53,8 @@ NOTES:
 `.trim();
 
 const userQueries = [
-  `My brother in law jonathan and I want to arrange a hotel in Eilat for our families. We are 2 adults - each couple. Make sure it has a private pool, we are looking for a 5 night stay on the 2nd week of August. Our budget is 1500 shekels per night per room (we need two rooms).`,
-  // `I'm looking for accommodations in London for a 4-night stay starting on the 12th of April, 2024. We are a family of 2 adults, 2 kids (8 and 6), and a 6-months baby, and we'll be bringing our dog. Must have washer and a jacuzzi. It's critical that the booking comes with a free cancellation policy, as our plans might change. Our budget is up to 4000 USD for the whole stay. Must have 2 separate bedrooms...`,
+  // `My brother in law jonathan and I want to arrange a hotel in Eilat for our families. We are 2 adults - each couple. Make sure it has a pool private to us, we are looking for a 5 night stay on the 2nd week of August. Our budget is 1500 shekels per night per room (we need two rooms).`,
+  `I'm looking for accommodations in Madrid for a 4-night stay starting on the 12th of April, 2024. We are a family of 2 adults, 2 kids (8 and 6), and a 6-months baby, and we'll be bringing our dog. Must have washer and a jacuzzi. It's critical that the booking comes with a free cancellation policy, as our plans might change. Our budget is up to 4000 USD for the whole stay. Must have 2 separate bedrooms...`,
   // `Find a place in Porto for me and my wife, 2 weeks starting 22th march!!!`,
   // `Book the Savoy in London - I'm on a business trip and I need a room for 3 nights starting on the 1st of April. I need a room with a view and a bathtub. My budget is 500 pounds per night.`,
   // `ME + 4 KIDS + 2 DOGS. 3 NIGHTS IN A CABIN IN THE WOODS AT LAKE TAHO. 2 BEDROOMS, 2 BATHROOMS. 3RD WEEK OF SEPTEMBER. BUDGET: 1900 BUCKS PER NIGHT.`,
