@@ -59,6 +59,14 @@ export function convertStructuredFiltersToUrl(filters) {
     nflt.push(getBookingFacilityByName("Free cancellation"));
     logGreen("Free cancellation INJECTED!");
   }
+  if (filters.bedrooms) {
+    nflt.push(`entire_place_bedroom_count=${filters.bedrooms}`);
+    logGreen(`Bedrooms limitation ${filters.bedrooms} INJECTED!`);
+  }
+  if (filters.bathrooms) {
+    nflt.push(`min_bathrooms=${filters.bathrooms}`);
+    logGreen(`Bathrooms limitation ${filters.bathrooms} INJECTED!`);
+  }
 
   urlParams.append("nflt", nflt.join(";"));
 
