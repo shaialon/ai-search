@@ -1,5 +1,7 @@
 import chalk from "chalk";
 import terminalLink from "terminal-link";
+import { config } from "./config.js";
+const { IS_TEST } = config;
 
 export function logGrey(message) {
   console.log(chalk.grey(message));
@@ -22,6 +24,9 @@ export function logBlue(message) {
 }
 
 export function logLink(url, anchorText, message, duration) {
+  if (IS_TEST) {
+    return;
+  }
   logGrey("-----------");
   let text = "";
   if (duration) {

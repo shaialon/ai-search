@@ -70,15 +70,16 @@ async function convertUserQueryToStructuredFilters(userQ) {
   return await openAICompletionWithCache(payload);
 }
 
-async function processUserQuery(userQ) {
+export async function processUserQuery(userQ) {
   const start = Date.now();
   const structuredFilters = await convertUserQueryToStructuredFilters(userQ);
   const duration = Date.now() - start;
   const url = convertStructuredFiltersToUrl(structuredFilters);
 
   logLink(url, "🔎 " + userQ, " Open Link\n", duration);
+  return url;
 }
 
-for (const userQ of userQueries) {
-  processUserQuery(userQ);
-}
+// for (const userQ of userQueries) {
+//   processUserQuery(userQ);
+// }

@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_OPTIONS=\"--experimental-vm-modules\" npx jest"
   },
   "author": "",
   "license": "ISC",
@@ -16,5 +16,10 @@
     "node-persist": "^4.0.1",
     "openai": "^4.27.0",
     "terminal-link": "^3.0.0"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.24.0",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0"
   }
 }
