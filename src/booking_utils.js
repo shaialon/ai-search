@@ -3,11 +3,13 @@ export function convertStructuredFiltersToUrl(filters) {
 
   const urlParams = new URLSearchParams();
 
-  urlParams.append("ss", filters.location);
-  urlParams.append("ssne", filters.location);
-  urlParams.append("ssne_untouched", filters.location);
+  const { location, brand = "" } = filters;
+  // urlParams.append("ss", `${brand} ${location}`.trim());
+  urlParams.append("ss", location);
+  urlParams.append("ssne", location);
+  urlParams.append("ssne_untouched", location);
 
-  urlParams.append("lang", "en-us"); // TODO - support other languages
+  urlParams.append("lang", filters.language_IETF || "en-us");
   urlParams.append("checkin", filters.check_in_date);
   urlParams.append("checkout", filters.check_out_date);
 
@@ -30,15 +32,13 @@ export function convertStructuredFiltersToUrl(filters) {
   const nflt = [];
   if (filters.price_per_night) {
     const { lte, gte, currency } = filters.price_per_night;
-    // const price = `USD-min-230-1;hotelfacility=4`
+    // Example for USD up to 230 per night: `USD-min-230-1;hotelfacility=4`
     const price = `price=${currency || "USD"}-${gte || "min"}-${
       lte || "max"
     }-1;`;
     nflt.push(price);
   }
-  if (nflt.length > 0) {
-    urlParams.append("nflt", nflt.join(";"));
-  }
+  urlParams.append("nflt", nflt.join(";"));
 
   //   sb_travel_purpose=leisure
 

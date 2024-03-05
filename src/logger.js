@@ -23,12 +23,15 @@ export function logBlue(message) {
 
 export function logLink(url, anchorText, message, duration) {
   logGrey("-----------");
-  let text = chalk.yellow(anchorText);
+  let text = "";
   if (duration) {
-    text += chalk.green.bold(` Took (${duration.toLocaleString()} ms).`);
+    text += chalk.green.bold(`Took (${duration.toLocaleString()} ms).`);
   }
   if (message) {
     text += chalk.blue.bold(message);
+  }
+  if (anchorText) {
+    text += chalk.yellow(` ` + anchorText);
   }
   console.log(terminalLink(text, url));
   logGrey("-----------");
