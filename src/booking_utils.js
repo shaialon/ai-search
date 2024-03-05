@@ -12,7 +12,7 @@ export function convertStructuredFiltersToUrl(filters) {
   urlParams.append("ssne", location);
   urlParams.append("ssne_untouched", location);
 
-  urlParams.append("lang", filters.language_IETF || "en-us");
+  urlParams.append("lang", filters.language_IETF?.toLowerCase() || "en");
   urlParams.append("checkin", filters.check_in_date);
   urlParams.append("checkout", filters.check_out_date);
 
@@ -38,6 +38,9 @@ export function convertStructuredFiltersToUrl(filters) {
     // Example for USD up to 230 per night: `USD-min-230-1;hotelfacility=4`
     const price = `price=${currency || "USD"}-${gte || "min"}-${lte || "max"}-1;`;
     nflt.push(price);
+    if (currency) {
+      urlParams.append("selected_currency", currency);
+    }
   }
 
   if (filters.facilities) {
@@ -59,13 +62,13 @@ export function convertStructuredFiltersToUrl(filters) {
     nflt.push(getBookingFacilityByName("Free cancellation"));
     logGreen("Free cancellation INJECTED!");
   }
-  if (filters.bedrooms) {
-    nflt.push(`entire_place_bedroom_count=${filters.bedrooms}`);
-    logGreen(`Bedrooms limitation ${filters.bedrooms} INJECTED!`);
+  if (filters.bedrooms_min) {
+    nflt.push(`entire_place_bedroom_count=${filters.bedrooms_min}`);
+    logGreen(`Bedrooms limitation ${filters.bedrooms_min} INJECTED!`);
   }
-  if (filters.bathrooms) {
-    nflt.push(`min_bathrooms=${filters.bathrooms}`);
-    logGreen(`Bathrooms limitation ${filters.bathrooms} INJECTED!`);
+  if (filters.bathrooms_min) {
+    nflt.push(`min_bathrooms=${filters.bathrooms_min}`);
+    logGreen(`Bathrooms limitation ${filters.bathrooms_min} INJECTED!`);
   }
 
   urlParams.append("nflt", nflt.join(";"));
