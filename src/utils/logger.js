@@ -1,26 +1,33 @@
 import chalk from "chalk";
 import terminalLink from "terminal-link";
-import { config } from "./config.js";
+import { config } from "../config.js";
 const { IS_TEST } = config;
 
+function logIfNotTest(message) {
+  if (IS_TEST) {
+    return;
+  }
+  console.log(message);
+}
+
 export function logGrey(message) {
-  console.log(chalk.grey(message));
+  logIfNotTest(chalk.grey(message));
 }
 
 export function logYellow(message) {
-  console.log(chalk.yellow(message));
+  logIfNotTest(chalk.yellow(message));
 }
 
 export function logRed(message) {
-  console.log(chalk.red(message));
+  logIfNotTest(chalk.red(message));
 }
 
 export function logGreen(message) {
-  console.log(chalk.green(message));
+  logIfNotTest(chalk.green(message));
 }
 
 export function logBlue(message) {
-  console.log(chalk.blue(message));
+  logIfNotTest(chalk.blue(message));
 }
 
 export function logLink(url, anchorText, message, duration) {
