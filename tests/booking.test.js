@@ -2,7 +2,7 @@ import { jest } from "@jest/globals";
 import chalk from "chalk";
 import terminalLink from "terminal-link";
 import { processUserQuery } from "../src/index.js";
-import { tests } from "../src/benchmark.js";
+import { tests } from "../benchmark/benchmark.js";
 const TEST_TIMEOUT = 30000;
 
 for (const { name, query, url } of tests) {
