@@ -1,4 +1,6 @@
 import { jest } from "@jest/globals";
+import chalk from "chalk";
+import terminalLink from "terminal-link";
 import { processUserQuery } from "../src/index.js";
 const TEST_TIMEOUT = 30000;
 
@@ -17,7 +19,9 @@ const tests = [
 
 for (const { name, query, url } of tests) {
   test.concurrent(
-    `${name} 🔎 ${query}`,
+    `${chalk.underline.black.bold.bgYellowBright(
+      name
+    )} 🔎 ${query} ${terminalLink(chalk.blue.bold("Open Expected Link"), url)}`,
     async () => {
       const data = await processUserQuery(query);
       expect(data).toBe(url);
@@ -25,3 +29,4 @@ for (const { name, query, url } of tests) {
     TEST_TIMEOUT
   );
 }
+
