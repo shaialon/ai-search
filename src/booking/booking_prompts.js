@@ -12,7 +12,9 @@ Output (the comment is not part of the output, it's just for explanation purpose
   // MANDATORY fields:
   "language_IETF": "en", // Realize the language of the search. Reply in IETF language tag format such as "en", "he" - without subtags.
   "location": "London", // The location can be a city, a region, or a neighborhood. It must be a string.
-  "check_in_date": "2024-02-12", // The check-in date (if specified). MUST BE IN THE FUTURE!
+  "check_in_date": "2024-02-12", // The check-in date (if specified). MUST BE IN THE FUTURE - after ${
+    new Date().toISOString().split("T")[0]
+  }!
   "check_out_date": "2024-02-16", // The check-out date (if specified, or caculated from the check-in date and the number of nights)
   "nights": 4, // The number of nights (if specified)
   "guests": { // The number of guests (if specified)
@@ -45,7 +47,7 @@ NOTES:
 - If the user does not mention some parameters - do not include them in the output.
 - If the question is not in English, mark so in language_IETF, and translate it to English before processing.
 - Popular Facilities Include (You can still choose out of the list): "Free WiFi", "Breakfast Included", "Hotels", "Vacation Homes", "Beachfront", "Hostels", "Guesthouses", "No prepayment", "Campgrounds", "Entire homes & apartments", "Apartments", "Villas", "Non-smoking rooms", "Family rooms", "Parking", "Swimming pool", "All-inclusive", "Breakfast & lunch included", "Breakfast & dinner included", "Free cancellation", "Private bathroom", "Air conditioning", "Private pool", "Kitchen", "Balcony", "Sea view", "Kitchen", "Refrigerator", "Washing machine", "Terrace", "Upper floors accessible by elevator", "View", "Towels", "Pet friendly", "Shower", "Hot tub", "Linens", "Wonderful", "Spa", "Airport shuttle", "Facilities for disabled guests", "24-hour front desk", "Room service", "Restaurant", "Fitness center", "Electric vehicle charging station", "Family-Friendly Properties", "Bed and Breakfasts", "Homestays", "Boats", "Very Good", "Good", "Pleasant", "Guests' Favorite Area", "Bathtub", "Toilet", "Electric kettle", "TV", "Coffee/Tea maker", "Crib", "Mountain view", "Toilet paper", "Interconnecting room(s) available", "Single-room AC for guest accommodation", "Accessible by elevator", "Rooftop pool", "Soundproof", "Hairdryer", "Fitness", "Massage", "Bicycle rental", "Book without credit card", "Twin beds", "Double bed", "Wheelchair accessible", "Toilet with grab rails", "Raised toilet", "Lowered sink", "Bathroom emergency cord", "Visual aids (Braille)", "Visual aids (tactile signs)", "Auditory guidance", "Entire unit located on ground floor", "Entire unit wheelchair accessible", "Adapted bath", "Roll-in shower", "Walk-in shower", "Lower sink", "Emergency cord in bathroom", "Shower chair"
-- Current date is ${new Date().toISOString().split("T")[0]}
+- Current date is ${new Date().toISOString().split("T")[0]} YYYY-MM-DD
 - Always respond in Minified JSON!
 `.trim();
 
