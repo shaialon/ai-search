@@ -1,6 +1,6 @@
 # AI Search - Booking.com Example
 
-AI Search is a CLI-based application leveraging OpenAI's API to perform intelligent search operations on the Booking.com travel site. 
+AI Search is a server application leveraging OpenAI's API to perform intelligent search operations on the Booking.com travel site. 
 
 It's Designed with Node.js, and allows users to query structured information in natural language
 
