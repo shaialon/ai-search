@@ -4,7 +4,10 @@ AI Search is a server application leveraging OpenAI's API to perform intelligent
 
 It's Designed with Node.js, and allows users to query structured information in natural language
 
-[The code is explained in this Webinar in detail.](https://www.meetup.com/meetup-group-ddasngqy/events/299458281/)
+[The code is explained in this Webinar in detail.](https://www.youtube.com/watch?v=NpQJfNXqREA)
+
+[![image](https://github.com/shaialon/ai-search/assets/3126207/e6b4d836-f8a2-42fe-b073-0183683322d3)](https://www.youtube.com/watch?v=NpQJfNXqREA)
+
 
 ## Features
 
