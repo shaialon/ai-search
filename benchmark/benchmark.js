@@ -17,17 +17,12 @@ export const tests = [
   {
     name: "Advanced Query - Vague facilities, free cancellation, pet friendly - WITH BASSINET",
     query: `I'm looking for accommodations in Madrid for a 4-night stay starting on the 12th of April, 2024. We are a family of 2 adults, 2 kids (8 and 6), and a 6-months baby (we'll need a bassinet), and we'll be bringing our dog. Must have washer and a swimmin pool. It's critical that the booking comes with a free cancellation policy, as our plans might change. Our budget is up to 4000 Euro for the whole stay. Must have 2 separate bedrooms... `,
-    url: `https://www.booking.com/searchresults.html?ss=Madrid&ssne=Madrid&ssne_untouched=Madrid&lang=en&checkin=2024-04-12&checkout=2024-04-16&group_adults=2&group_children=3&age=8&age=6&age=0&no_rooms=2&selected_currency=EUR&nflt=price%3DEUR-min-1000-1%3B%3Broomfacility%3D34%3Bhotelfacility%3D433%3Broomfacility%3D175%3Bhotelfacility%3D4%3Bfc%3D2%3Bentire_place_bedroom_count%3D2`,
+    url: `https://www.booking.com/searchresults.html?ss=Madrid&ssne=Madrid&ssne_untouched=Madrid&lang=en&checkin=2024-04-12&checkout=2024-04-16&group_adults=2&group_children=3&age=8&age=6&age=0&selected_currency=EUR&nflt=price%3DEUR-min-1000-1%3B%3Broomfacility%3D34%3Bhotelfacility%3D433%3Broomfacility%3D175%3Bhotelfacility%3D4%3Bfc%3D2%3Bentire_place_bedroom_count%3D2`,
   },
-  //   {
-  //     name: "Advanced Query - Vague facilities, free cancellation, pet friendly",
-  //     query: `I'm looking for accommodations in Madrid for a 4-night stay starting on the 12th of April, 2024. We are a family of 2 adults, 2 kids (8 and 6), and a 6-months baby, and we'll be bringing our dog. Must have washer and a swimmin pool. It's critical that the booking comes with a free cancellation policy, as our plans might change. Our budget is up to 4000 Euro for the whole stay. Must have 2 separate bedrooms... `,
-  //     url: `https://www.booking.com/searchresults.html?ss=Madrid&ssne=Madrid&ssne_untouched=Madrid&lang=en&checkin=2024-04-12&checkout=2024-04-16&group_adults=2&group_children=3&age=8&age=6&age=0&no_rooms=2&selected_currency=EUR&nflt=price%3DEUR-min-1000-1%3B%3Broomfacility%3D34%3Bhotelfacility%3D433%3Bhotelfacility%3D4%3Bfc%3D2%3Bentire_place_bedroom_count%3D2`,
-  //   },
   {
     name: "ALL CAPS! Bedroooms, bathrooms, budget",
     query: `ME + 4 KIDS + 2 DOGS. 3 NIGHTS AT LAKE TAHO. 2 BEDROOMS, 2 BATHROOMS. 3RD WEEK OF SEPTEMBER. BUDGET: 900 BUCKS PER NIGHT.`,
-    url: `https://www.booking.com/searchresults.html?ss=Lake+Tahoe&ssne=Lake+Tahoe&ssne_untouched=Lake+Tahoe&lang=en&checkin=2024-09-16&checkout=2024-09-19&group_adults=1&group_children=4&no_rooms=2&selected_currency=USD&nflt=price%3DUSD-min-900-1%3B%3Bhotelfacility%3D4%3Bentire_place_bedroom_count%3D2%3Bmin_bathrooms%3D2`,
+    url: `https://www.booking.com/searchresults.html?ss=Lake+Tahoe&ssne=Lake+Tahoe&ssne_untouched=Lake+Tahoe&lang=en&checkin=2024-09-16&checkout=2024-09-19&group_adults=1&group_children=4&selected_currency=USD&nflt=price%3DUSD-min-900-1%3B%3Bhotelfacility%3D4%3Bentire_place_bedroom_count%3D2%3Bmin_bathrooms%3D2`,
   },
   {
     name: "Hebrew query - very vague",

@@ -29,8 +29,8 @@ export function convertStructuredFiltersToUrl(filters) {
     // urlParams.append("group_children", guests.infants);
     // no_rooms
   }
-  if (filters.rooms) {
-    urlParams.append("no_rooms", filters.rooms);
+  if (filters.seprate_rooms) {
+    urlParams.append("no_rooms", filters.seprate_rooms);
   }
   const nflt = [];
   if (filters.price_per_night) {

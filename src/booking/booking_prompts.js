@@ -29,9 +29,9 @@ Output (the comment is not part of the output, it's just for explanation purpose
 
   // Other OPTIONAL fields include if specified:
   "price_per_night": {"currency":"GBP", "lte":1200} // The price per night (if specified), supports "gte" and "lte" operators. The currency if specified. This is for all rooms in the order ( so 600x2 ).
-  "rooms": 2, // The number of rooms (if specified)
-  "bedrooms_min": 2, // The minimum number of bedrooms (if specified)
-  "bathrooms_min": 2, // The minimum number of bathrooms (if specified)
+  "seprate_rooms": 1, // The number of seprate units/rooms in the order (if specified)
+  "bedrooms_min": 2, // The minimum number of bedrooms (per room) (if specified)
+  "bathrooms_min": 2, // The minimum number of bathrooms (per room) (if specified)
   "pet_friendly": true, // The pet-friendly flag. The "true" value is added automatically, as the user is traveling with a dog.
   "free_cancellation": true, // If the user explicitly mentioned the free cancellation policy.
   
