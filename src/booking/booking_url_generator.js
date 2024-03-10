@@ -29,7 +29,7 @@ export function convertStructuredFiltersToUrl(filters) {
     // urlParams.append("group_children", guests.infants);
     // no_rooms
   }
-  if (filters.seprate_rooms) {
+  if (filters?.seprate_rooms > 1) {
     urlParams.append("no_rooms", filters.seprate_rooms);
   }
   const nflt = [];

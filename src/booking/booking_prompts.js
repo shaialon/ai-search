@@ -60,6 +60,8 @@ async function convertUserQueryToStructuredFilters(userQ) {
     // model: MODELS.GPT_3_5,
     model: MODELS.GPT_4_TURBO,
     response_format: { type: "json_object" },
+    temperature: 0,
+    seed: 100,
   };
   return await openAICompletionWithCache(payload);
 }
