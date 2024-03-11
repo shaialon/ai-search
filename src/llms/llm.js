@@ -2,6 +2,7 @@ import { config, llmModels, LOGGER_OPTIONS } from "../config.js";
 import { getFromCache, setToCache } from "../utils/cache.js";
 
 import { openAICompletion } from "./open_ai_utils.js";
+import { anthropicCompletion } from "./anthropic_utils.js";
 
 const LOG = config.VERBOSE_LOGGING;
 
@@ -21,12 +22,19 @@ export async function llmCompletionWithCache(payload) {
   };
   let chatCompletion = await getFromCache(payloadWithModel);
   if (!chatCompletion) {
-    //
+    // Identify the LLM provider by the model name
     const llmProvider = identifyLLMProviderByModelName(payloadWithModel.model);
     LOG && console.log(`Making a request to ${llmProvider}: ${payloadWithModel.model}`);
     LOG && console.time("Query LLM Execution");
-    chatCompletion = await openAICompletion(payloadWithModel);
+
+    // Choose the correct LLM provider
+    if (llmProvider === "OpenAI") {
+      chatCompletion = await openAICompletion(payloadWithModel);
+    } else if (llmProvider === "Anthropic") {
+      chatCompletion = await anthropicCompletion(payloadWithModel);
+    }
     LOG && console.timeEnd("Query LLM Execution");
+
     setToCache(payloadWithModel, chatCompletion);
   }
 
