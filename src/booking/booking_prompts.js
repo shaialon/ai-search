@@ -1,4 +1,4 @@
-import { openAICompletionWithCache, MODELS } from "../llms/open_ai_utils.js";
+import { llmCompletionWithCache } from "../llms/llm.js";
 import { convertStructuredFiltersToUrl } from "./booking_url_generator.js";
 import { logLink } from "../utils/logger.js";
 
@@ -57,13 +57,8 @@ async function convertUserQueryToStructuredFilters(userQ) {
       { role: "system", content: SYSTEM_PROMPT },
       { role: "user", content: userQ },
     ],
-    // model: MODELS.GPT_3_5,
-    model: MODELS.GPT_4_TURBO,
-    response_format: { type: "json_object" },
-    temperature: 0,
-    seed: 100,
   };
-  return await openAICompletionWithCache(payload);
+  return await llmCompletionWithCache(payload);
 }
 
 export async function processUserQuery(userQ) {
