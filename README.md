@@ -1,13 +1,12 @@
 # AI Search - Booking.com Example
 
-AI Search is a server application leveraging OpenAI's API to perform intelligent search operations on the Booking.com travel site. 
+AI Search is a server application leveraging OpenAI's API to perform intelligent search operations on the Booking.com travel site.
 
 It's Designed with Node.js, and allows users to query structured information in natural language
 
 [The code is explained in this Webinar in detail.](https://www.youtube.com/watch?v=NpQJfNXqREA)
 
 [![image](https://github.com/shaialon/ai-search/assets/3126207/e6b4d836-f8a2-42fe-b073-0183683322d3)](https://www.youtube.com/watch?v=NpQJfNXqREA)
-
 
 ## Features
 
@@ -31,19 +30,18 @@ cd ai-search
 
 ### install the dependencies:
 
-run `nvm use` to have it choose the correct node version.
-run `npm install` to install the various dependencies.
-
+run `nvm use` to have it choose the correct node version. run `npm install` to install the various dependencies.
 
 ### Configuration
+
 Create a `.env` file in the root directory and add your OpenAI API key:
 
 ```
 OPENAI_API_KEY=your_api_key_here
 ```
 
-
 ## Usage
+
 To start the application server, run:
 
 ```bash
@@ -51,10 +49,10 @@ npm start
 ```
 
 You can then make requests like so (via POSTMAN or just a browser):
+
 ```
 GET http://localhost:8010/ai_search?search={{url_encoded_query_here}}
 ```
-
 
 ### To run tests:
 
@@ -62,20 +60,22 @@ GET http://localhost:8010/ai_search?search={{url_encoded_query_here}}
 npm test
 ```
 
-
 ## Contributions
-Contributions are welcome! 
-Please open an issue to discuss your idea or submit a pull request.
+
+Contributions are welcome! Please open an issue to discuss your idea or submit a pull request.
 
 Especially appreciated:
+
 - [ ] Support Booking flexible dates
+- [x] Adding support for Anthropic Claude 3
 - [ ] Adding support for Google Gemini (via Langchain.js)
 - [ ] Adding a RAG component
 - [ ] Get data dynamically from Booking
 
-
 ## Disclaimer
+
 This project is not affiliated with Booking.com, and is meant for demonstration purposes only.
 
 ## License
+
 This project is licensed under the MIT License. See the LICENSE file for details.
