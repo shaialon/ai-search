@@ -18,6 +18,7 @@
     "chalk": "^5.3.0",
     "dotenv": "^16.4.2",
     "fastify": "^4.26.2",
+    "groq-sdk": "^0.3.2",
     "node-persist": "^4.0.1",
     "openai": "^4.27.0",
     "terminal-link": "^3.0.0"

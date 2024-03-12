@@ -3,17 +3,28 @@ import { getFromCache, setToCache } from "../utils/cache.js";
 
 import { openAICompletion } from "./open_ai_utils.js";
 import { anthropicCompletion } from "./anthropic_utils.js";
+import { groqCompletion } from "./groq_utils.js";
 
 const LOG = config.VERBOSE_LOGGING;
+
+const GROQ_MODELS = new Set([llmModels.MIXTRAL]);
 
 function identifyLLMProviderByModelName(modelName) {
   if (modelName.startsWith("gpt-")) {
     return "OpenAI";
   } else if (modelName.startsWith("claude-")) {
     return "Anthropic";
+  } else if (GROQ_MODELS.has(modelName)) {
+    return "Groq";
   }
   return null;
 }
+
+const RESOLVERS = {
+  OpenAI: openAICompletion,
+  Anthropic: anthropicCompletion,
+  Groq: groqCompletion,
+};
 
 export async function llmCompletionWithCache(payload) {
   const payloadWithModel = {
@@ -28,11 +39,8 @@ export async function llmCompletionWithCache(payload) {
     LOG && console.time("Query LLM Execution");
 
     // Choose the correct LLM provider
-    if (llmProvider === "OpenAI") {
-      chatCompletion = await openAICompletion(payloadWithModel);
-    } else if (llmProvider === "Anthropic") {
-      chatCompletion = await anthropicCompletion(payloadWithModel);
-    }
+    chatCompletion = await RESOLVERS[llmProvider](payloadWithModel);
+
     LOG && console.timeEnd("Query LLM Execution");
 
     setToCache(payloadWithModel, chatCompletion);
