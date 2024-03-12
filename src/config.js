@@ -19,7 +19,7 @@ export const config = Object.freeze({
   OPENAI_API_KEY: process.env["OPENAI_API_KEY"],
   ANTHROPIC_API_KEY: process.env["ANTHROPIC_API_KEY"],
   GROQ_API_KEY: process.env["GROQ_API_KEY"],
-  MODEL: llmModels.MIXTRAL,
+  MODEL: llmModels.GPT_4_TURBO,
   VERBOSE_LOGGING: true && !IS_TEST, // process.env["VERBOSE_LOGGING"] === "true",
   IS_TEST,
   PORT: process.env["PORT"] || 8010,
