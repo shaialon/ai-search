@@ -2,7 +2,7 @@ import { config, llmModels, LOGGER_OPTIONS } from "../config.js";
 import Groq from "groq-sdk";
 
 const groq = new Groq({
-  apiKey: config.GROQ_API_KEY,
+  apiKey: config.GROQ_API_KEY || "MISSING_GROQ_API_KEY",
 });
 
 const LOG = config.VERBOSE_LOGGING;
