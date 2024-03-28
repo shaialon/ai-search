@@ -12,11 +12,11 @@ Output (the comment is not part of the output, it's just for explanation purpose
   // MANDATORY fields:
   "language_IETF": "en", // Realize the language of the search. Reply in IETF language tag format such as "en", "he" - without subtags.
   "location": "London", // The location can be a city, a region, or a neighborhood. It must be a string.
-  "check_in_date": "2024-02-12", // The check-in date (if specified). MUST BE IN THE FUTURE - after ${
+  "check_in_date": "2024-02-12", // The check-in date (MANDATORY! Either specified, or caculated from the check-out date and the number of nights). MUST BE IN THE FUTURE - after ${
     new Date().toISOString().split("T")[0]
   }!
-  "check_out_date": "2024-02-16", // The check-out date (if specified, or caculated from the check-in date and the number of nights)
-  "nights": 4, // The number of nights (if specified)
+  "check_out_date": "2024-02-16", // The check-out date (MANDATORY! Either specified, or caculated from the check-in date and the number of nights)
+  "nights": 4, // The number of nights (MANDATORY! Either specified, or caculated from the check-in and check-out dates)
   "guests": { // The number of guests (if specified)
       "adults": 2,
       "kids": 3, // The number of kids AND infants (if specified)
@@ -28,7 +28,7 @@ Output (the comment is not part of the output, it's just for explanation purpose
   "facilities": ["Washing machine","Hot tub","Crib"], // The amenities / facilities that user EXPLICITLY asked for. Don't add things that the user didn't ask for. Best select from the list of popular facilities below.
 
   // Other OPTIONAL fields include if specified:
-  "price_per_night": {"currency":"GBP", "lte":1200} // The price per night (if specified), supports "gte" and "lte" operators. The currency if specified. This is for all rooms in the order ( so 600x2 ).
+  "price_per_night": {"currency":"GBP", "lte":1200} // OPTIONAL (if specified) - The price per night, supports "gte" and "lte" operators. The currency if specified. This is for all rooms in the order ( so 600x2 ).
   "seprate_rooms": 1, // The number of seprate units/rooms in the order (if specified)
   "bedrooms_min": 2, // The minimum number of bedrooms (per room) (if specified)
   "bathrooms_min": 2, // The minimum number of bathrooms (per room) (if specified)

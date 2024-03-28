@@ -1,6 +1,5 @@
 import { config, llmModels, LOGGER_OPTIONS } from "../config.js";
 import OpenAI from "openai";
-import { getFromCache, setToCache } from "../utils/cache.js";
 
 const openai = new OpenAI({
   apiKey: config.OPENAI_API_KEY,
