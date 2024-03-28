@@ -11,6 +11,7 @@ export const llmModels = {
 
   // Groq
   MIXTRAL: "mixtral-8x7b-32768",
+  LLAMA2_70B: "llama2-70b-4096",
 };
 
 const IS_TEST = process.env.JEST_WORKER_ID !== undefined;
@@ -19,7 +20,7 @@ export const config = Object.freeze({
   OPENAI_API_KEY: process.env["OPENAI_API_KEY"],
   ANTHROPIC_API_KEY: process.env["ANTHROPIC_API_KEY"],
   GROQ_API_KEY: process.env["GROQ_API_KEY"],
-  MODEL: llmModels.GPT_4_TURBO,
+  MODEL: llmModels.MIXTRAL,
   VERBOSE_LOGGING: true && !IS_TEST, // process.env["VERBOSE_LOGGING"] === "true",
   IS_TEST,
   PORT: process.env["PORT"] || 8010,

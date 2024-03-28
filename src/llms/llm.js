@@ -7,7 +7,7 @@ import { groqCompletion } from "./groq_utils.js";
 
 const LOG = config.VERBOSE_LOGGING;
 
-const GROQ_MODELS = new Set([llmModels.MIXTRAL]);
+const GROQ_MODELS = new Set([llmModels.MIXTRAL, llmModels.LLAMA2_70B]);
 
 function identifyLLMProviderByModelName(modelName) {
   if (modelName.startsWith("gpt-")) {
